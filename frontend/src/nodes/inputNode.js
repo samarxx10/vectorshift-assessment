@@ -53,6 +53,7 @@ export const InputNode = ({ id, data }) => {
   return (
     <BaseNode
       title="Input"
+      nodeType="customInput"
       fields={fields}
       handles={handles}
     />

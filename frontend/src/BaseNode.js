@@ -1,29 +1,33 @@
 import { Handle, Position } from 'reactflow';
+import { getNodeColor } from './nodeColors';
 
 export const BaseNode = ({
     title,
     fields,
     handles = [],
+    nodeType,
 }) => {
+    const accentColor = getNodeColor(nodeType);
+
     return (
         <div
-            style={{
-                width: 220,
-                minHeight: 80,
-                border: '1px solid black',
-                padding: '10px',
-                background: 'white',
-            }}
+            className="node-card"
+            style={{ '--node-accent': accentColor }}
         >
-            <div>
-                <strong>{title}</strong>
+            <div className="node-card__header">
+                <div className="node-card__icon">
+                    <span className="node-card__icon-dot" />
+                </div>
+                <span className="node-card__title">{title}</span>
             </div>
 
-            {fields?.map((field, index) => (
-                <div key={index} style={{ marginTop: '8px' }}>
-                    {field}
-                </div>
-            ))}
+            <div className="node-card__body">
+                {fields?.map((field, index) => (
+                    <div key={index} className="node-card__field">
+                        {field}
+                    </div>
+                ))}
+            </div>
 
             {handles.map((handle, index) => (
                 <Handle

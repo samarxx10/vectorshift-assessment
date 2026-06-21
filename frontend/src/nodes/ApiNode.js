@@ -28,6 +28,7 @@ export const ApiNode = ({ id }) => {
   return (
     <BaseNode
       title="API"
+      nodeType="api"
       fields={fields}
       handles={handles}
     />

@@ -15,6 +15,7 @@ import { FilterNode } from './nodes/FilterNode';
 import { DelayNode } from './nodes/DelayNode';
 import { ConditionNode } from './nodes/ConditionNode';
 import { ApiNode } from './nodes/ApiNode';
+import { NODE_COLORS } from './nodeColors';
 
 import 'reactflow/dist/style.css';
 
@@ -43,6 +44,8 @@ const selector = (state) => ({
   onEdgesChange: state.onEdgesChange,
   onConnect: state.onConnect,
 });
+
+const minimapNodeColor = (node) => NODE_COLORS[node.type] || '#6366f1';
 
 export const PipelineUI = () => {
     const reactFlowWrapper = useRef(null);
@@ -101,8 +104,7 @@ export const PipelineUI = () => {
     }, []);
 
     return (
-        <>
-        <div ref={reactFlowWrapper} style={{width: '100vw', height: '70vh'}}>
+        <div ref={reactFlowWrapper} style={{ width: '100%', height: '100%' }}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
@@ -117,11 +119,24 @@ export const PipelineUI = () => {
                 snapGrid={[gridSize, gridSize]}
                 connectionLineType='smoothstep'
             >
-                <Background color="#aaa" gap={gridSize} />
-                <Controls />
-                <MiniMap />
+                <Background
+                    variant="dots"
+                    gap={gridSize}
+                    size={1.2}
+                    color="var(--canvas-dot)"
+                />
+                <Controls position="bottom-left" showInteractive={false} />
+                <MiniMap
+                    position="bottom-right"
+                    nodeColor={minimapNodeColor}
+                    nodeStrokeWidth={3}
+                    nodeBorderRadius={6}
+                    maskColor="rgba(0, 0, 0, 0.65)"
+                    pannable
+                    zoomable
+                    style={{ bottom: 88 }}
+                />
             </ReactFlow>
         </div>
-        </>
     )
 }

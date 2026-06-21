@@ -48,6 +48,7 @@ export const OutputNode = ({ id, data }) => {
   return (
     <BaseNode
       title="Output"
+      nodeType="customOutput"
       fields={fields}
       handles={handles}
     />

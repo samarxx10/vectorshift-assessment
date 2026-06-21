@@ -33,6 +33,7 @@ export const ConditionNode = ({ id }) => {
   return (
     <BaseNode
       title="Condition"
+      nodeType="condition"
       fields={fields}
       handles={handles}
     />

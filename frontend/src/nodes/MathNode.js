@@ -33,6 +33,7 @@ export const MathNode = ({ id }) => {
   return (
     <BaseNode
       title="Math"
+      nodeType="math"
       fields={fields}
       handles={handles}
     />

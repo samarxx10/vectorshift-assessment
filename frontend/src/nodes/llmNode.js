@@ -4,7 +4,7 @@ import { BaseNode } from '../BaseNode';
 export const LLMNode = ({ id }) => {
 
   const fields = [
-    <span>This is a LLM.</span>,
+    <span className="node-card__description">This is a LLM.</span>,
   ];
 
   const handles = [
@@ -28,6 +28,7 @@ export const LLMNode = ({ id }) => {
   return (
     <BaseNode
       title="LLM"
+      nodeType="llm"
       fields={fields}
       handles={handles}
     />

@@ -28,6 +28,7 @@ export const FilterNode = ({ id }) => {
   return (
     <BaseNode
       title="Filter"
+      nodeType="filter"
       fields={fields}
       handles={handles}
     />

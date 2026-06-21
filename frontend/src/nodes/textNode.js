@@ -50,6 +50,7 @@ export const TextNode = ({ id, data }) => {
   return (
     <BaseNode
       title="Text"
+      nodeType="text"
       fields={fields}
       handles={handles}
     />

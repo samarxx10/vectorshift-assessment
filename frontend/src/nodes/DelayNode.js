@@ -28,6 +28,7 @@ export const DelayNode = ({ id }) => {
   return (
     <BaseNode
       title="Delay"
+      nodeType="delay"
       fields={fields}
       handles={handles}
     />
